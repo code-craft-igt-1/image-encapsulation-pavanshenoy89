@@ -15,13 +15,14 @@ int ImageBrightener::BrightenWholeImage() {
     for (int x = 0; x < rows; x++) {
         for (int y = 0; y < columns; y++) {
             int pixelValue = m_inputImage->GetPixel(x, y);
-            if (pixelValue > (maxBrightness - brightnessIncrement)) {
+            int updatedPixelValue = pixelValue + brightnessIncrement;       
+            if (updatedPixelValue > maxBrightness) {
                 ++attenuatedPixelCount;
-                m_inputImage->SetPixel(x, y, maxBrightness);
-            } else {
-                m_inputImage->SetPixel(x, y, pixelValue + brightnessIncrement);
-            }
+                updatedPixelValue = maxBrightness;
+            }         
+            m_inputImage->SetPixel(x, y, updatedPixelValue);
         }
     }
+
     return attenuatedPixelCount;
 }
