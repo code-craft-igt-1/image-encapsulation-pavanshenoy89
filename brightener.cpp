@@ -10,13 +10,16 @@ int ImageBrightener::BrightenWholeImage() {
     // While brightening, some pixels may cross the max brightness. They are
     // called 'attenuated' pixels
     int attenuatedPixelCount = 0;
-    for (int x = 0; x < m_inputImage->GetRows(); x++) {
-        for (int y = 0; y < m_inputImage->GetColumns(); y++) {
-            if (m_inputImage->GetPixel(x, y) > (255 - 25)) {
+    int rows = m_inputImage->GetRows();
+    int columns = m_inputImage->GetColumns();
+    for (int x = 0; x < rows; x++) {
+        for (int y = 0; y < columns; y++) {
+            int pixel_value = m_inputImage->GetPixel(x, y);
+            if (pixel_value > (255 - 25)) {
                 ++attenuatedPixelCount;
                 m_inputImage->SetPixel(x, y, 255);
             } else {
-                m_inputImage->SetPixel(x, y, m_inputImage->GetPixel(x, y) + 25);
+                m_inputImage->SetPixel(x, y, pixel_value + 25);
             }
         }
     }
