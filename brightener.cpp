@@ -1,5 +1,4 @@
-#include "brightener.h"
-#include <utility>
+#include "./brightener.h"
 
 ImageBrightener::ImageBrightener(std::shared_ptr<Image> inputImage)
     : m_inputImage(std::move(inputImage)) {
@@ -10,7 +9,8 @@ int ImageBrightener::BrightenWholeImage() {
 
     for (int x = 0; x < m_inputImage->GetRows(); x++) {
         for (int y = 0; y < m_inputImage->GetColumns(); y++) {
-            int updatedPixelValue = IncreaseBrightness(m_inputImage->GetPixel(x, y), attenuatedPixelCount);
+            int updatedPixelValue = IncreaseBrightness(
+                m_inputImage->GetPixel(x, y), attenuatedPixelCount);
             m_inputImage->SetPixel(x, y, updatedPixelValue);
         }
     }

@@ -1,10 +1,15 @@
 #pragma once
-#include "image.h"
+#include "./image.h"
+#include <memory>
 
 class ImageBrightener {
- private:
-    std::shared_ptr<Image> m_inputImage;
  public:
     explicit ImageBrightener(std::shared_ptr<Image> inputImage);
     int BrightenWholeImage();
+
+private:
+    int IncreaseBrightness(int pixelValue, int& attenuatedPixelCount);
+
+private:
+    std::shared_ptr<Image> m_inputImage;
 };
