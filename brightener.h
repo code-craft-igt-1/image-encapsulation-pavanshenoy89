@@ -7,9 +7,9 @@ class ImageBrightener {
     explicit ImageBrightener(std::shared_ptr<Image> inputImage);
     int BrightenWholeImage();
 
- private:
+  private:
     int IncreaseBrightness(int pixelValue, int* attenuatedPixelCount);
 
- private:
+  private:
     std::shared_ptr<Image> m_inputImage;
 };
