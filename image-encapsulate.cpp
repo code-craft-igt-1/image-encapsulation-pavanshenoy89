@@ -12,7 +12,7 @@ int main() {
         int attenuatedCount = brightener.BrightenWholeImage();
         std::cout << "Attenuated " << attenuatedCount << " pixels\n";
 
-        std::cout << "... in an image of: " << image->GetRows() 
+        std::cout << "... in an image of: " << image->GetRows()
                   << " x " << image->GetColumns() << "\n";
         return 0;
     } else {
