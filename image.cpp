@@ -18,6 +18,6 @@ void Image::SetPixel(uint16_t x, uint16_t y, uint8_t value) {
     pixels[x * m_columns + y] = value;
 }
 
-bool Image::Validate() const { 
+bool Image::Validate() const {
     return (m_columns <= MAX_ROW_COLUMN && m_rows <= MAX_ROW_COLUMN);
 }
