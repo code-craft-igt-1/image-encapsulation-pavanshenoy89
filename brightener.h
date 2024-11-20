@@ -3,10 +3,15 @@
 #include "./image.h"
 
 class ImageBrightener {
- private:
-    std::unique_ptr<Image> m_inputImage;
  public:
-    explicit ImageBrightener(std::unique_ptr<Image> inputImage);
-    bool ValidateImage();
-    int BrightenWholeImage();
+    explicit ImageBrightener(std::shared_ptr<Image> inputImage);
+    void BrightenWholeImage();
+    uint16_t GetAttenuatedCount() const;
+
+ private:
+    int IncreaseBrightness(int pixelValue);
+
+ private:
+    std::shared_ptr<Image> m_inputImage;
+    uint16_t attenuatedPixelCount;
 };
