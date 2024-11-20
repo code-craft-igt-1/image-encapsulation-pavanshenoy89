@@ -2,7 +2,7 @@
 #include <utility>
 
 ImageBrightener::ImageBrightener(std::shared_ptr<Image> inputImage)
-    : m_inputImage(std::move(inputImage)) ,attenuatedPixelCount(0) {
+    : m_inputImage(std::move(inputImage)), attenuatedPixelCount(0) {
 }
 
 void ImageBrightener::BrightenWholeImage() {
@@ -15,9 +15,8 @@ void ImageBrightener::BrightenWholeImage() {
     }
 }
 
-uint16_t ImageBrightener::GetAttenuatedCount() const
-{
-	return attenuatedPixelCount;
+uint16_t ImageBrightener::GetAttenuatedCount() const {
+    return attenuatedPixelCount;
 }
 
 int ImageBrightener::IncreaseBrightness(int pixelValue) {
