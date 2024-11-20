@@ -9,8 +9,8 @@ int main() {
 
     ImageBrightener brightener(image);
     if (image->Validate()) {
-        int attenuatedCount = brightener.BrightenWholeImage();
-        std::cout << "Attenuated " << attenuatedCount << " pixels\n";
+        brightener.BrightenWholeImage();
+        std::cout << "Attenuated " << brightener.GetAttenuatedCount()<< " pixels\n";
 
         std::cout << "... in an image of: " << image->GetRows()
                   << " x " << image->GetColumns() << "\n";
